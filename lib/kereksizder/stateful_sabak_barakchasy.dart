@@ -14,9 +14,9 @@ class _StatefulSabakBarakchasyState extends State<StatefulSabakBarakchasy> {
   String tekst = 'bul body bolot';
 
   void tekstiOzgort() {
-    tekst = 'Tekst ozgordu ';
-
-    setState(() {});
+    setState(() {
+      tekst = 'Tekst ozgordu ';
+    });
   }
 
   int _count = 0;

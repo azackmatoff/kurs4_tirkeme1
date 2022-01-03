@@ -1,13 +1,16 @@
-import 'package:flutter/material.dart';
+import 'dart:developer';
 
-class TapshyrmaBir extends StatefulWidget {
-  const TapshyrmaBir({Key key}) : super(key: key);
+import 'package:flutter/material.dart';
+import 'package:kurs4_tirkeme1/ekinchi_barak.dart';
+
+class BirinchiBarak extends StatefulWidget {
+  const BirinchiBarak({Key key}) : super(key: key);
 
   @override
-  _TapshyrmaBirState createState() => _TapshyrmaBirState();
+  _BirinchiBarakState createState() => _BirinchiBarakState();
 }
 
-class _TapshyrmaBirState extends State<TapshyrmaBir> {
+class _BirinchiBarakState extends State<BirinchiBarak> {
   int number = 0;
 
   @override
@@ -39,22 +42,31 @@ class _TapshyrmaBirState extends State<TapshyrmaBir> {
           // ),
 
           /// Variant 2
-          Container(
-            decoration: const BoxDecoration(
-              color: Color(0xff46F3F3),
-              borderRadius: BorderRadius.all(Radius.circular(12)),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return EkinchiBarak(
+                  kelgenSan: number.toString(),
+                );
+              }));
+            },
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Color(0xff46F3F3),
+                borderRadius: BorderRadius.all(Radius.circular(12)),
 
-              /// jalgyz bir jaktagi burchunu ozgortuu
-              // borderRadius: BorderRadius.only(topRight: Radius.circular(25))
-            ),
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 120.0, vertical: 18.0),
-              child: Text(
-                'сан: $number',
-                style: TextStyle(
-                  fontSize: 22.0,
-                  fontWeight: FontWeight.bold,
+                /// jalgyz bir jaktagi burchunu ozgortuu
+                // borderRadius: BorderRadius.only(topRight: Radius.circular(25))
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 120.0, vertical: 18.0),
+                child: Text(
+                  'сан: ' + number.toString(),
+                  style: TextStyle(
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -64,7 +76,17 @@ class _TapshyrmaBirState extends State<TapshyrmaBir> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  /// uzun jolu, 1 ge azayt
+                  // number -= 1;
+
+                  /// kiska jolu, 1 ge azayt
+                  number--;
+
+                  setState(() {});
+
+                  log('number-- ===>> $number');
+                },
                 child: const Icon(Icons.remove),
                 style: ElevatedButton.styleFrom(
                   shape: const RoundedRectangleBorder(
@@ -78,7 +100,15 @@ class _TapshyrmaBirState extends State<TapshyrmaBir> {
               ),
               const SizedBox(width: 28.0),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  // number += 1;
+
+                  number++;
+
+                  setState(() {});
+
+                  log('number++ ===>> $number');
+                },
                 child: const Icon(Icons.add),
                 style: ElevatedButton.styleFrom(
                   shape: const RoundedRectangleBorder(

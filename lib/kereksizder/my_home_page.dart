@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kurs4_tirkeme1/misaldar.dart';
+import 'package:kurs4_tirkeme1/kereksizder/misaldar.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
