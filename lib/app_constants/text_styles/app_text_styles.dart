@@ -9,7 +9,7 @@ class AppTextStyles {
   );
   static const TextStyle buttonText = TextStyle(
     fontSize: 22.0,
-    color: AppColors.black,
+    color: AppColors.white,
     fontWeight: FontWeight.bold,
   );
 }

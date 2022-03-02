@@ -7,12 +7,14 @@ class CustomTextButton extends StatelessWidget {
     @required this.onTap,
     @required this.number,
     this.bgColor,
+    this.textStyle,
     Key key,
   }) : super(key: key);
 
   final int number;
   final GestureTapCallback onTap;
   final Color bgColor;
+  final TextStyle textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class CustomTextButton extends StatelessWidget {
               const EdgeInsets.symmetric(horizontal: 120.0, vertical: 18.0),
           child: Text(
             'сан: ' + number.toString(),
-            style: AppTextStyles.buttonText,
+            style: textStyle ?? AppTextStyles.buttonText,
           ),
         ),
       ),
