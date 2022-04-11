@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kurs4_tirkeme1/pages/my_first_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kurs4_tirkeme1/presentation/pages/my_first/cubit/counter_cubit.dart';
+import 'package:kurs4_tirkeme1/presentation/pages/my_first/cubit/my_first_cubit.dart';
+import 'package:kurs4_tirkeme1/presentation/pages/my_first/ui/my_first_page.dart';
 
 /// Refactoring
 void main() {
@@ -11,9 +14,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyFirstPage(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => MyFirstCubit(0),
+          ),
+          BlocProvider(
+            create: (context) => CounterCubit(),
+          ),
+        ],
+        child: const MyFirstPage(),
+      ),
     );
   }
 }
